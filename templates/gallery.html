@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="container {{ style }}" id="gallery">
+	<article id="{{ slug | lower }}" >
+		<header id="article-header">					
+			<h1>{{ title }}</h1>
+			{{ contents | raw }}	
+		</header>		
+		<section>
+			<ul class="images">
+				{% for image in images %} 	
+				<li class="image"  id="image-{{ loop.index }}">
+					<img src="{{ root }}/{{ slug | lower }}/{{ image }}" alt="">
+				</li>				
+				{% endfor %}
+			</ul>
+		</section>
+		
+	</article>
+</div>
+
+{% endblock %}
+

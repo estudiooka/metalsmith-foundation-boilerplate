@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="container {{ style }}" id="default">
+	<article id="{{ slug | lower }}" >
+		<header id="article-header">					
+			<h1>{{ title }}</h1>
+		</header>
+		<section class="content">	
+			{{ contents | raw }}
+		</section>			
+	</article>
+</div>
+
+{% endblock %}

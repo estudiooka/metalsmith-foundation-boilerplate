@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="container {{ style }}" id="default">
+	<article id="{{ slug | lower }}" >
+		<header id="article-header">					
+			<h1>{{ title }}</h1>
+		</header>
+		<section class="content">	
+			{{ contents | raw }}
+		</section>
+		<footer>	
+			{% if  previous.path.dir %}
+			<a class="button" href="{{ root }}/{{ previous.path.dir }}"><i class="fa fa-chevron-left"></i></a>
+			{% endif %}	
+			{% if  next.path.dir %}
+			<a  class="button" href="{{ root }}/{{ next.path.dir }}"><i class="fa fa-chevron-right"></i></a>
+			{% endif %}			
+		</footer>			
+	</article>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,36 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="container {{ style }}" id="blog">
+	<article id="{{ slug | lower }}">
+	    <header class="article-header">
+	        <h1>{{ title }}</h1> {{ contents | raw }}</h1>
+	        
+	    </header>
+	    <section class="posts">
+	        {% for post in blog %}
+	        <div class="post media-object">
+	            <div class="media-object-section">
+	                <div class="thumbnail">
+	                    <img src="{{ root }}/{{ post.images[0] }}" alt="image for {{ post.title }}">
+	                </div>
+	            </div>
+	            <div class="media-object-section">
+	                <h2>{{ post.title }}</h2>
+	                <p>{{ post.excerpt | raw }}</p>
+	                <a href="{{ root }}/{{ post.path.dir }}"> more</a>
+	            </div>
+	        </div>
+	        {% endfor %}
+	    </section>
+	    <footer>
+	    </footer>
+	</article>
+	<aside>
+		<h3>Tags</h3>
+		
+		{% for tag in cloud %}		
+			<a class="button tiny secondary" href="{{ root }}{{ tag.pth | replace(' ','-','g') }}">{{ tag.ctg }}</a>
+		{% endfor %}
+	</aside>
+</div>
+{% endblock %}
